@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar color="primary" hideBackButton >
+    <ion-menu [content]="content"></ion-menu>
+    <ion-title>
+      Maps
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button clear (click)="logout()">Logout</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div>
+    <form (ngSubmit)="loadMap()">  
+    <ion-item>
+      <ion-label>Select Distance</ion-label>
+      <ion-select [(ngModel)]="form.isKM" name="isKM">
+          <ion-option value="">Select</ion-option>
+          <ion-option value="2000">2 KM</ion-option>
+          <ion-option value="4000">4 KM</ion-option>
+          <ion-option value="6000">6 KM</ion-option>
+          <ion-option value="8000">8 KM</ion-option>
+          <ion-option value="10000">10 KM</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Select Category</ion-label>
+      <ion-select [(ngModel)]="form.cat" name="cat">
+        <ion-option value="">Select</ion-option>
+        <ion-option value="20">Food Courts</ion-option>
+        <ion-option value="1">Cafes</ion-option>
+        <ion-option value="31">Bakery</ion-option>
+        <ion-option value="41">Baverage Shop</ion-option>
+        <ion-option value="7">Bar</ion-option>
+        <ion-option value="5">Lounge</ion-option>
+        <ion-option value="8">Club</ion-option>
+        <ion-option value="16">Casual Dining</ion-option>
+        <ion-option value="18">Fine Dining</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button block type="submit">Search</button>
+    </form>
+    </div>
+    <!--<ion-searchbar autocorrect="off" autocapitalize="off" spellcheck="off" #searchbar placeholder="Search..." ></ion-searchbar>-->
+    <div #map id="map"></div>
+
+    <div class="address-view">
+      <ion-item no-lines class="address-item">
+        <ion-label stacked class="title-label">NAME</ion-label>
+        <ion-textarea class="address" rows="1" [(ngModel)]="placename"><strong>{{placename}}</strong></ion-textarea>
+      </ion-item>
+      <ion-item no-lines class="address-item">
+        <ion-label stacked class="title-label">CUISINES</ion-label>
+        <ion-textarea class="address" rows="1" [(ngModel)]="cuisines">{{cuisines}}</ion-textarea>
+      </ion-item>
+      <ion-item no-lines class="address-item">
+        <ion-label stacked class="title-label">ADDRESS</ion-label>
+        <ion-textarea class="address" rows="1" [(ngModel)]="address">{{address}}</ion-textarea>
+      </ion-item>
+    </div>
+
+
+</ion-content>
